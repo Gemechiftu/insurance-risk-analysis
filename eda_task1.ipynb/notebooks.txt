@@ -1,0 +1,20 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load your dataset
+df = pd.read_csv('../data/insurance_data.csv')
+
+# Show the first few rows
+df.head()
+df.describe()
+df.isnull().sum()
+df['LossRatio'] = df['TotalClaim'] / df['TotalPremium']
+df[['PolicyID', 'LossRatio']].head()
+sns.histplot(df['TotalPremium'], kde=True)
+plt.title("Distribution of Total Premium")
+plt.show()
+
+
+
+
